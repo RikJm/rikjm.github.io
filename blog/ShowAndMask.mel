@@ -1,0 +1,26 @@
+global proc showAndMask() {
+global int $active;
+$currentPanel = `getPanel -withFocus`;
+
+if (!$active) {
+	string $panelType = `getPanel -to $currentPanel`; if ($panelType == "modelPanel") {
+  	modelEditor -e -allObjects false $currentPanel;
+   	modelEditor -e -polymeshes ( !`modelEditor -q -polymeshes $currentPanel` ) $currentPanel;
+   	modelEditor -e -nurbsCurves ( !`modelEditor -q -nurbsCurves $currentPanel` ) $currentPanel;
+   	modelEditor -e -nurbsSurfaces ( !`modelEditor -q -nurbsSurfaces $currentPanel` ) $currentPanel;
+   	modelEditor -e -subdivSurfaces  ( !`modelEditor -q -subdivSurfaces $currentPanel` ) $currentPanel;
+	
+	};
+
+   setObjectPickMask "All" 0;
+   setObjectPickMask "Curve" true;
+   $active=true;
+}
+
+else {
+
+	setObjectPickMask "All" 1;
+	$active=false;
+}
+
+}

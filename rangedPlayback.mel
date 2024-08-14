@@ -1,0 +1,51 @@
+global string $gPlayBackSlider;
+$playing=false;
+int $min;
+int $max;
+
+if (`play -q -state`){
+    playbackOptions -loop continuous;
+    playbackOptions - minTime $min -maxTime $max;
+    play -state false;
+    }
+    
+else{
+    
+    $min=`playbackOptions -q -min`;
+    $max=`playbackOptions -q -max`;
+
+    string $range = `timeControl -q -range $gPlayBackSlider`;
+    
+    string $strings[];
+    tokenize($range, ":", $strings);
+    print ($strings);
+    string $minframe[];
+    string $maxframe[];
+    tokenize($strings[0], "\"", $minframe);
+    tokenize($strings[1], "\"", $maxframe);
+    print ($minframe[0]);
+    print " ";
+    print ($maxframe[0]);
+    print " ";
+    float $firstFrame = $minframe[0];
+    float $lastFrame = $maxframe[0];
+
+    
+    print $firstFrame;
+    print " ";    
+    print $lastFrame;
+    print " ";   
+    $a = ($lastFrame-$firstFrame);
+    print $a;
+    
+    if ($a>1){
+        playbackOptions -loop continuous;
+        playbackOptions - minTime $firstFrame -maxTime $lastFrame;
+        $playing=true;
+        play -forward true;
+        }
+    else{
+        play -forward true;
+        }
+    }
+        
