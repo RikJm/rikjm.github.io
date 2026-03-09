@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "..", "public")));
 
 // Get current menu
-app.get("/backend/menu", (req, res) => {
+app.get("/api/menu", (req, res) => {
   try {
     const data = fs.readFileSync(path.join(__dirname, "menu.json"), "utf8");
     res.json(JSON.parse(data));
@@ -25,8 +25,8 @@ app.get("/backend/menu", (req, res) => {
   }
 });
 
-// (Optional) simple protected update endpoint
-app.post("/backend/menu", (req, res) => {
+// Optional protected update endpoint
+app.post("/api/menu", (req, res) => {
   const auth = req.headers["x-admin-key"];
   if (auth !== process.env.ADMIN_KEY) {
     return res.status(401).json({ error: "Unauthorized" });

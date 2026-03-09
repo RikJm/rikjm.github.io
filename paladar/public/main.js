@@ -11,20 +11,21 @@ async function loadMenu() {
   
       const menu = await res.json();
   
-      dateEl.textContent = `Divendres, ${menu.date}`; // you can format this however you like
+      // Simple date display – you can adapt to weekday names if you like
+      dateEl.textContent = menu.date ? `Data: ${menu.date}` : "";
   
       const renderList = (el, items) => {
         el.innerHTML = "";
-        items.forEach((item) => {
+        (items || []).forEach((item) => {
           const li = document.createElement("li");
           li.textContent = item;
           el.appendChild(li);
         });
       };
   
-      renderList(primersEl, menu.primers || []);
-      renderList(segonsEl, menu.segons || []);
-      renderList(postresEl, menu.postres || []);
+      renderList(primersEl, menu.primers);
+      renderList(segonsEl, menu.segons);
+      renderList(postresEl, menu.postres);
   
       errorEl.textContent = "";
     } catch (err) {

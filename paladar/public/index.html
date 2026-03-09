@@ -5,112 +5,135 @@
   <title>Paladar - Cuinats per emportar a Girona</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header class="header">
     <div class="container header-inner">
       <div class="logo">Paladar</div>
       <nav class="nav">
-        <a class="btn-primary" href="#menu-dia">Veure menú</a>
-        <a class="btn-primary" href="#plats">Plats</a>
-        <a class="btn-primary" href="#contacte">Contacte</a>
+        <a href="#menu-dia">Menú del dia</a>
+        <a href="#plats">Plats</a>
+        <a href="#contacte">Contacte</a>
       </nav>
     </div>
   </header>
 
-    <main>
+  <main>
     <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-inner">
-            <h1>Cuinats per emportar a Girona</h1>
-            <p>Menú diari, plats casolans i postres artesanes.</p>
+      <div class="hero-overlay"></div>
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>Cuinats per emportar a Girona</h1>
+          <p>Menú diari, plats casolans i postres artesanes. Cuinem com a casa perquè només t’hagis de preocupar de gaudir.</p>
+          <div class="hero-actions">
             <a href="#menu-dia" class="btn-primary">Veure menú d’avui</a>
+            <a href="#contacte" class="btn-ghost">On som</a>
+          </div>
         </div>
-        </section>
+        <div class="hero-image-wrapper">
+          <img src="img/hero.jpg" alt="Plats casolans per emportar" class="hero-image" />
+        </div>
+      </div>
+    </section>
 
-      <section id="menu-dia" class="section">
-        <div class="container">
+    <section id="menu-dia" class="section section-paper">
+      <div class="container">
+        <div class="section-header">
           <h2>Menú del dia</h2>
           <p id="menu-date" class="menu-date"></p>
-
-          <div class="menu-columns">
-            <div>
-              <h3>Primers</h3>
-              <ul id="primers-list"></ul>
-            </div>
-            <div>
-              <h3>Segons</h3>
-              <ul id="segons-list"></ul>
-            </div>
-            <div>
-              <h3>Postres</h3>
-              <ul id="postres-list"></ul>
-            </div>
-          </div>
-
-          <p id="menu-error" class="menu-error"></p>
         </div>
-      </section>
 
-      <section id="plats" class="section section-alt">
-        <div class="container">
-          <h2>Alguns dels nostres plats</h2>
-          <div class="grid">
-            <div class="card">
-              <h3>Primers</h3>
-              <ul>
-                <li>Trinxat</li>
-                <li>Ensaladilla</li>
-                <li>Arròs a la cassola</li>
-                <li>Canelons</li>
-                <li>Fideuà</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Segons</h3>
-              <ul>
-                <li>Galtes</li>
-                <li>Bacallà amb muselina de poma</li>
-                <li>Vedella amb salsafins</li>
-                <li>Mandonguilles</li>
-                <li>Pollastre a l’ast</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Postres</h3>
-              <ul>
-                <li>Sacher</li>
-                <li>Flam de coco</li>
-                <li>Tatin de poma</li>
-                <li>Recuits de drap</li>
-                <li>Tiramisú (per encàrrec)</li>
-              </ul>
-            </div>
+        <div class="menu-columns">
+          <div class="menu-column">
+            <h3>Primers</h3>
+            <ul id="primers-list"></ul>
+          </div>
+          <div class="menu-column">
+            <h3>Segons</h3>
+            <ul id="segons-list"></ul>
+          </div>
+          <div class="menu-column">
+            <h3>Postres</h3>
+            <ul id="postres-list"></ul>
           </div>
         </div>
-      </section>
 
-      <section id="contacte" class="section">
-        <div class="container contact">
-          <div>
-            <h2>On som</h2>
-            <p>C/ Riu Güell 35–37 Baixos<br />17005 Girona</p>
-            <p><strong>Telèfon:</strong> 972 911 677<br /><strong>Correu:</strong> paladarsc@gmail.com</p>
-          </div>
-          <div>
-            <h2>Horari</h2>
-            <p>Dilluns a divendres: 9:00 – 15:30<br />Caps de setmana i festius: consultar</p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <p>© Paladar · Cuinats per emportar a Girona</p>
+        <p id="menu-error" class="menu-error"></p>
       </div>
-    </footer>
+    </section>
 
-    <script src="main.js"></script>
+    <section id="plats" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Alguns dels nostres plats</h2>
+          <p class="section-subtitle">Una selecció de cuina casolana perquè cada dia puguis menjar bé.</p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <img src="img/plats-primers.jpg" alt="Primers plats" class="card-img" />
+            <h3>Primers</h3>
+            <ul>
+              <li>Trinxat</li>
+              <li>Ensaladilla</li>
+              <li>Arròs a la cassola</li>
+              <li>Canelons</li>
+              <li>Fideuà</li>
+            </ul>
+          </div>
+          <div class="card">
+            <img src="img/plats-segons.jpg" alt="Segons plats" class="card-img" />
+            <h3>Segons</h3>
+            <ul>
+              <li>Galtes</li>
+              <li>Bacallà amb muselina de poma</li>
+              <li>Vedella amb salsafins</li>
+              <li>Mandonguilles</li>
+              <li>Pollastre a l’ast</li>
+            </ul>
+          </div>
+          <div class="card">
+            <img src="img/plats-postres.jpg" alt="Postres" class="card-img" />
+            <h3>Postres</h3>
+            <ul>
+              <li>Sacher</li>
+              <li>Flam de coco</li>
+              <li>Tatin de poma</li>
+              <li>Recuits de drap</li>
+              <li>Tiramisú (per encàrrec)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacte" class="section section-paper">
+      <div class="container contact">
+        <div>
+          <h2>On som</h2>
+          <p>C/ Riu Güell 35–37 Baixos<br />17005 Girona</p>
+          <p><strong>Telèfon:</strong> 972 911 677<br /><strong>Correu:</strong> paladarsc@gmail.com</p>
+        </div>
+        <div>
+          <h2>Horari</h2>
+          <p>Dilluns a divendres: 9:00 – 15:30<br />Caps de setmana i festius: consultar</p>
+          <p class="contact-note">Per encàrrecs especials o grups, contacta amb nosaltres.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-overlay"></div>
+    <div class="container footer-inner">
+      <p>© Paladar · Cuinats per emportar a Girona</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
