@@ -44,21 +44,30 @@ async function loadMenu() {
     ];
   
     let index = 0;
+    let intervalId;
   
-    setInterval(() => {
-      // fade out
-      heroImg.classList.add("fade-out");
+    const start = () => {
+      intervalId = setInterval(() => {
+        heroImg.classList.add("fade-out");
   
-      setTimeout(() => {
-        // change image
-        index = (index + 1) % images.length;
-        heroImg.src = images[index];
+        setTimeout(() => {
+          index = (index + 1) % images.length;
+          heroImg.src = images[index];
+          heroImg.classList.remove("fade-out");
+        }, 800);
+      }, 4500);
+    };
   
-        // fade in
-        heroImg.classList.remove("fade-out");
-      }, 800); // matches CSS transition
-    }, 4500); // change every 4.5 seconds
+    const stop = () => clearInterval(intervalId);
+  
+    // Start slideshow
+    start();
+  
+    // Pause on hover
+    heroImg.addEventListener("mouseenter", stop);
+    heroImg.addEventListener("mouseleave", start);
   }
+  
   
   function startCardSlideshows() {
     const slideshows = [
@@ -93,18 +102,31 @@ async function loadMenu() {
       if (!imgEl) return;
   
       let index = 0;
+      let intervalId;
   
-      setInterval(() => {
-        imgEl.classList.add("fade-out");
+      const start = () => {
+        intervalId = setInterval(() => {
+          imgEl.classList.add("fade-out");
   
-        setTimeout(() => {
-          index = (index + 1) % images.length;
-          imgEl.src = images[index];
-          imgEl.classList.remove("fade-out");
-        }, 800);
-      }, 5000); // change every 5 seconds
+          setTimeout(() => {
+            index = (index + 1) % images.length;
+            imgEl.src = images[index];
+            imgEl.classList.remove("fade-out");
+          }, 800);
+        }, 5000);
+      };
+  
+      const stop = () => clearInterval(intervalId);
+  
+      // Start slideshow
+      start();
+  
+      // Pause on hover
+      imgEl.addEventListener("mouseenter", stop);
+      imgEl.addEventListener("mouseleave", start);
     });
   }
+  
   
 
   document.addEventListener("DOMContentLoaded", () => {

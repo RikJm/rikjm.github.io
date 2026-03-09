@@ -51,13 +51,16 @@
   }
   
   .logo {
-    font-family: "Playfair Display", serif;
-    font-weight: 700;
-    font-size: 1.4rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--primary);
+    display: flex;
+    align-items: center;
   }
+  
+
+  .logo-img {
+    height: 78px;        /* adjust to match your design */
+    width: auto;
+    display: block;
+  }  
   
   .nav a {
     margin-left: 1.5rem;
