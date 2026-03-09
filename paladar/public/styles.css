@@ -175,7 +175,7 @@
     font-size: 0.9rem;
     color: var(--muted);
   }
-  
+
   .btn-primary {
     display: inline-block;
     background: var(--primary);
@@ -189,6 +189,25 @@
   
   .btn-primary:hover {
     background: #a03828;
+  }
+
+  .nav a {
+    position: relative;
+  }
+  
+  .nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.2s ease;
+  }
+  
+  .nav a:hover::after {
+    width: 100%;
   }
   
   
