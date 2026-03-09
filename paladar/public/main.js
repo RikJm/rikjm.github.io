@@ -33,7 +33,7 @@ async function loadMenu() {
       errorEl.textContent = "No s’ha pogut carregar el menú del dia.";
     }
   }
-  
+
   function startHeroSlideshow() {
     const heroImg = document.querySelector(".hero-image");
   
@@ -60,10 +60,56 @@ async function loadMenu() {
     }, 4500); // change every 4.5 seconds
   }
   
+  function startCardSlideshows() {
+    const slideshows = [
+      {
+        selector: ".slideshow-primers",
+        images: [
+          "img/plats-primers-1.jpg",
+          "img/plats-primers-2.jpg",
+          "img/plats-primers-3.jpg"
+        ]
+      },
+      {
+        selector: ".slideshow-segons",
+        images: [
+          "img/plats-segons-1.jpg",
+          "img/plats-segons-2.jpg",
+          "img/plats-segons-3.jpg"
+        ]
+      },
+      {
+        selector: ".slideshow-postres",
+        images: [
+          "img/plats-postres-1.jpg",
+          "img/plats-postres-2.jpg",
+          "img/plats-postres-3.jpg"
+        ]
+      }
+    ];
+  
+    slideshows.forEach(({ selector, images }) => {
+      const imgEl = document.querySelector(selector);
+      if (!imgEl) return;
+  
+      let index = 0;
+  
+      setInterval(() => {
+        imgEl.classList.add("fade-out");
+  
+        setTimeout(() => {
+          index = (index + 1) % images.length;
+          imgEl.src = images[index];
+          imgEl.classList.remove("fade-out");
+        }, 800);
+      }, 5000); // change every 5 seconds
+    });
+  }
+  
+
   document.addEventListener("DOMContentLoaded", () => {
     loadMenu();
     startHeroSlideshow();
-  });
-    
-  document.addEventListener("DOMContentLoaded", loadMenu);
+    startCardSlideshows();
+  });  
   

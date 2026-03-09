@@ -130,7 +130,7 @@
   }
   
   .hero-image {
-    width: 320px;
+    width: 700px;
     max-width: 100%;
     border-radius: 26px;
     box-shadow: var(--shadow-soft);
@@ -199,6 +199,10 @@
     font-size: 1.8rem;
     margin: 0 0 0.25rem;
   }
+
+  #plats .section-header h2 {
+    color: #ffffff; /* or any color you want */
+  }
   
   .section-subtitle {
     margin: 0;
@@ -263,6 +267,11 @@
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 0.9rem;
+    transition: opacity 0.8s ease-in-out;
+  }
+  
+  .card-img.fade-out {
+    opacity: 0;
   }
   
   .card h3 {
