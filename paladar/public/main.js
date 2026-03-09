@@ -34,5 +34,36 @@ async function loadMenu() {
     }
   }
   
+  function startHeroSlideshow() {
+    const heroImg = document.querySelector(".hero-image");
+  
+    const images = [
+      "img/hero-1.jpg",
+      "img/hero-2.jpg",
+      "img/hero-3.jpg"
+    ];
+  
+    let index = 0;
+  
+    setInterval(() => {
+      // fade out
+      heroImg.classList.add("fade-out");
+  
+      setTimeout(() => {
+        // change image
+        index = (index + 1) % images.length;
+        heroImg.src = images[index];
+  
+        // fade in
+        heroImg.classList.remove("fade-out");
+      }, 800); // matches CSS transition
+    }, 4500); // change every 4.5 seconds
+  }
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    loadMenu();
+    startHeroSlideshow();
+  });
+    
   document.addEventListener("DOMContentLoaded", loadMenu);
   
