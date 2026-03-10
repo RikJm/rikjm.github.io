@@ -55,12 +55,14 @@
     align-items: center;
     position: relative;
     z-index: 20; /* higher than nav toggle */
+    cursor: pointer;
   }
   
   .logo-img {
     height: 78px;        /* adjust to match your design */
     width: auto;
     display: block;
+    cursor: pointer;
   }  
   
   .nav a {
