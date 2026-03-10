@@ -1,7 +1,9 @@
 :root {
     --bg-color: #f5eee4;
     --text-color: #2f2a26;
+    --navtext-color: #2f2a26;
     --paper-bg: #fdf8f1;
+    --plats-header : #fdf8f1;
     --accent-color: #c0392b;
     --header-bg: rgba(255, 255, 255, 0.9);
     --bg: #f5eee4;
@@ -19,7 +21,9 @@
   html[data-theme="dark"] {
     --bg-color: #121212;
     --text-color: #e6e6e6;
+    --navtext-color: #e6e6e6;
     --paper-bg: #1e1e1e;
+    --plats-header : #4b4b4b;
     --accent-color: #ff6b5a;
     --header-bg: rgba(18, 18, 18, 0.9);
   }
@@ -95,7 +99,7 @@
   .nav a {
     margin-left: 1.5rem;
     text-decoration: none;
-    color: var(--text);
+    color: var(--navtext-color);
     font-size: 0.95rem;
     position: relative;
   }
@@ -240,7 +244,7 @@
   }
 
   #plats .section-header h2 {
-    color: #ffffff; /* or any color you want */
+    color: var(--plats-header)
   }
   
   .section-subtitle {
