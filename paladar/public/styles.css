@@ -3,7 +3,7 @@
     --text-color: #2f2a26;
     --navtext-color: #2f2a26;
     --paper-bg: #fdf8f1;
-    --plats-header : #000000;
+    --plats-header : #2f2a26;
     --accent-color: #c0392b;
     --header-bg: rgba(255, 255, 255, 0.9);
     --bg: #f5eee4;
@@ -23,7 +23,7 @@
     --text-color: #e6e6e6;
     --navtext-color: #e6e6e6;
     --paper-bg: #1e1e1e;
-    --plats-header : #4b4b4b;
+    --plats-header : #e6e6e6;
     --accent-color: #ff6b5a;
     --header-bg: rgba(18, 18, 18, 0.9);
   }
