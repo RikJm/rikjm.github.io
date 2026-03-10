@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
   startHeroSlideshow();
   startCardSlideshows();
 
-  // Define root and toggle (these were missing)
+  // Define root and toggle FIRST (important!)
   const root = document.documentElement;
   const toggle = document.getElementById("theme-toggle");
 
@@ -174,6 +174,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
   function applyTheme(theme) {
+    if (!root) return; // safety check
+
     root.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
 
@@ -185,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : "img/logo-light.png";
     }
   }
-  
+
   // 2. Load saved theme OR fall back to OS preference
   const saved = localStorage.getItem("theme");
   if (saved) {
@@ -198,7 +200,6 @@ document.addEventListener("DOMContentLoaded", () => {
   prefersDark.addEventListener("change", (e) => {
     const newTheme = e.matches ? "dark" : "light";
 
-    // Only auto-switch if the user has NOT manually chosen a theme
     if (!localStorage.getItem("theme")) {
       applyTheme(newTheme);
     }
@@ -225,5 +226,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
   
