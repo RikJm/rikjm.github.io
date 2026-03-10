@@ -60,7 +60,6 @@
     height: 78px;        /* adjust to match your design */
     width: auto;
     display: block;
-    margin-left: 1rem;
   }  
   
   .nav a {
@@ -380,6 +379,8 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 0.4rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   
     .nav a {
