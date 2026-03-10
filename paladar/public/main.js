@@ -186,6 +186,14 @@ document.addEventListener("DOMContentLoaded", () => {
     applyTheme(prefersDark.matches ? "dark" : "light");
   }
 
+  // Canvi de logo segons el tema
+  const logoImg = document.querySelector(".logo-img");
+  if (logoImg) {
+    logoImg.src = theme === "dark"
+      ? "img/logo-dark.png"
+      : "img/logo-light.png";
+  }
+
   // 3. Listen for OS theme changes in real time
   prefersDark.addEventListener("change", (e) => {
     const newTheme = e.matches ? "dark" : "light";
