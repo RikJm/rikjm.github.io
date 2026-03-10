@@ -68,104 +68,115 @@ async function loadMenu() {
   }
 }
 
-  function startHeroSlideshow() {
-    const heroImg = document.querySelector(".hero-image");
+function startHeroSlideshow() {
+  const heroImg = document.querySelector(".hero-image");
+
+  const images = [
+    "img/hero-1.jpg",
+    "img/hero-2.jpg",
+    "img/hero-3.jpg"
+  ];
+
+  let index = 0;
+  let intervalId;
+
+  const start = () => {
+    intervalId = setInterval(() => {
+      heroImg.classList.add("fade-out");
+
+      setTimeout(() => {
+        index = (index + 1) % images.length;
+        heroImg.src = images[index];
+        heroImg.classList.remove("fade-out");
+      }, 800);
+    }, 4500);
+  };
+
+  const stop = () => clearInterval(intervalId);
+
+  // Start slideshow
+  start();
+
+  // Pause on hover
+  heroImg.addEventListener("mouseenter", stop);
+  heroImg.addEventListener("mouseleave", start);
+}
   
-    const images = [
-      "img/hero-1.jpg",
-      "img/hero-2.jpg",
-      "img/hero-3.jpg"
-    ];
   
+function startCardSlideshows() {
+  const slideshows = [
+    {
+      selector: ".slideshow-primers",
+      images: [
+        "img/plats-primers-1.jpg",
+        "img/plats-primers-2.jpg",
+        "img/plats-primers-3.jpg"
+      ]
+    },
+    {
+      selector: ".slideshow-segons",
+      images: [
+        "img/plats-segons-1.jpg",
+        "img/plats-segons-2.jpg",
+        "img/plats-segons-3.jpg"
+      ]
+    },
+    {
+      selector: ".slideshow-postres",
+      images: [
+        "img/plats-postres-1.jpg",
+        "img/plats-postres-2.jpg",
+        "img/plats-postres-3.jpg"
+      ]
+    }
+  ];
+
+  slideshows.forEach(({ selector, images }) => {
+    const imgEl = document.querySelector(selector);
+    if (!imgEl) return;
+
     let index = 0;
     let intervalId;
-  
+
     const start = () => {
       intervalId = setInterval(() => {
-        heroImg.classList.add("fade-out");
-  
+        imgEl.classList.add("fade-out");
+
         setTimeout(() => {
           index = (index + 1) % images.length;
-          heroImg.src = images[index];
-          heroImg.classList.remove("fade-out");
+          imgEl.src = images[index];
+          imgEl.classList.remove("fade-out");
         }, 800);
-      }, 4500);
+      }, 5000);
     };
-  
+
     const stop = () => clearInterval(intervalId);
-  
+
     // Start slideshow
     start();
-  
+
     // Pause on hover
-    heroImg.addEventListener("mouseenter", stop);
-    heroImg.addEventListener("mouseleave", start);
-  }
-  
-  
-  function startCardSlideshows() {
-    const slideshows = [
-      {
-        selector: ".slideshow-primers",
-        images: [
-          "img/plats-primers-1.jpg",
-          "img/plats-primers-2.jpg",
-          "img/plats-primers-3.jpg"
-        ]
-      },
-      {
-        selector: ".slideshow-segons",
-        images: [
-          "img/plats-segons-1.jpg",
-          "img/plats-segons-2.jpg",
-          "img/plats-segons-3.jpg"
-        ]
-      },
-      {
-        selector: ".slideshow-postres",
-        images: [
-          "img/plats-postres-1.jpg",
-          "img/plats-postres-2.jpg",
-          "img/plats-postres-3.jpg"
-        ]
-      }
-    ];
-  
-    slideshows.forEach(({ selector, images }) => {
-      const imgEl = document.querySelector(selector);
-      if (!imgEl) return;
-  
-      let index = 0;
-      let intervalId;
-  
-      const start = () => {
-        intervalId = setInterval(() => {
-          imgEl.classList.add("fade-out");
-  
-          setTimeout(() => {
-            index = (index + 1) % images.length;
-            imgEl.src = images[index];
-            imgEl.classList.remove("fade-out");
-          }, 800);
-        }, 5000);
-      };
-  
-      const stop = () => clearInterval(intervalId);
-  
-      // Start slideshow
-      start();
-  
-      // Pause on hover
-      imgEl.addEventListener("mouseenter", stop);
-      imgEl.addEventListener("mouseleave", start);
+    imgEl.addEventListener("mouseenter", stop);
+    imgEl.addEventListener("mouseleave", start);
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadMenu();
+  startHeroSlideshow();
+  startCardSlideshows();
+
+  // Scroll to top when clicking the logo
+  const logo = document.querySelector(".logo");
+  if (logo) {
+    logo.addEventListener("click", (e) => {
+      e.preventDefault(); // prevents page reload if it's an <a>
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     });
   }
-  
-  
-
-  document.addEventListener("DOMContentLoaded", () => {
-    loadMenu();
-    startHeroSlideshow();
-    startCardSlideshows();
-  });  
+});
   
