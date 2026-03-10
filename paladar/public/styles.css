@@ -17,6 +17,8 @@
     --radius: 14px;
     --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
     --logo-src: url("img/logo-light.png");
+    --hero-bg-light: rgba(255, 255, 255, 0.6);
+    --hero-bg-dark: rgba(50, 50, 50, 0.6);
     
   }
 
@@ -32,6 +34,8 @@
     --header-bg: rgba(18, 18, 18, 0.9);
     --shadow-soft: 0 10px 25px rgba(153, 153, 153, 0.473);    
     --logo-src: url("img/logo-dark.png");
+    --hero-bg-light: rgba(210, 210, 210, 0.6);
+    --hero-bg-dark: rgba(79, 79, 79, 0.6);
   }
 
   .theme-toggle {
@@ -141,8 +145,8 @@
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent),
-                radial-gradient(circle at bottom right, rgba(111, 103, 102, 0.12), transparent);
+    background: radial-gradient(circle at top left,var(--hero-bg-light), transparent),
+                radial-gradient(circle at bottom right,var(--hero-bg-dark), transparent);
     pointer-events: none;
   }
   
