@@ -176,22 +176,22 @@ document.addEventListener("DOMContentLoaded", () => {
   function applyTheme(theme) {
     root.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
-  }
 
+    // Canvi de logo segons el tema
+    const logoImg = document.querySelector(".logo-img");
+    if (logoImg) {
+      logoImg.src = theme === "dark"
+        ? "img/logo-dark.png"
+        : "img/logo-light.png";
+    }
+  }
+  
   // 2. Load saved theme OR fall back to OS preference
   const saved = localStorage.getItem("theme");
   if (saved) {
     applyTheme(saved);
   } else {
     applyTheme(prefersDark.matches ? "dark" : "light");
-  }
-
-  // Canvi de logo segons el tema
-  const logoImg = document.querySelector(".logo-img");
-  if (logoImg) {
-    logoImg.src = theme === "dark"
-      ? "img/logo-dark.png"
-      : "img/logo-light.png";
   }
 
   // 3. Listen for OS theme changes in real time
