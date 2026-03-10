@@ -167,24 +167,40 @@ document.addEventListener("DOMContentLoaded", () => {
   startHeroSlideshow();
   startCardSlideshows();
 
-  const toggle = document.getElementById("theme-toggle");
-  const root = document.documentElement;
+  // 1. Detect OS preference
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
+  function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }
+
+  // 2. Load saved theme OR fall back to OS preference
+  const saved = localStorage.getItem("theme");
+  if (saved) {
+    applyTheme(saved);
+  } else {
+    applyTheme(prefersDark.matches ? "dark" : "light");
+  }
+
+  // 3. Listen for OS theme changes in real time
+  prefersDark.addEventListener("change", (e) => {
+    const newTheme = e.matches ? "dark" : "light";
+
+    // Only auto-switch if the user has NOT manually chosen a theme
+    if (!localStorage.getItem("theme")) {
+      applyTheme(newTheme);
+    }
+  });
+
+  // 4. Manual toggle button
   toggle.addEventListener("click", () => {
     const current = root.getAttribute("data-theme");
     const next = current === "light" ? "dark" : "light";
-    root.setAttribute("data-theme", next);
-
-    // Optional: save preference
-    localStorage.setItem("theme", next);
+    applyTheme(next);
   });
 
-  // Load saved theme
-  const saved = localStorage.getItem("theme");
-  if (saved) {
-    root.setAttribute("data-theme", saved);
-  }  
-
+  
   // Scroll to top when clicking the logo
   const logo = document.querySelector(".logo");
   if (logo) {
