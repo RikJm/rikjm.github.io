@@ -34,6 +34,15 @@ async function loadMenu() {
 
     // One image for the menu
     window.menuImage = menu.image ? `img/${menu.image}` : null;
+    
+    // Insert the menu image if available
+    const menuImgEl = document.getElementById("menu-image");
+    if (window.menuImage) {
+      menuImgEl.src = window.menuImage;
+      menuImgEl.style.display = "block";
+    } else {
+      menuImgEl.style.display = "none";
+    }
 
     // Render date
     dateEl.textContent = menu.date ? `Data: ${menu.date}` : "";

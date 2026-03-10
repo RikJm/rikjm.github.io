@@ -60,6 +60,7 @@
     height: 78px;        /* adjust to match your design */
     width: auto;
     display: block;
+    margin-left: 1.5rem;
   }  
   
   .nav a {
@@ -214,6 +215,20 @@
   }
   
   /* Menu del dia */
+
+  .menu-image-wrapper {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  #menu-image {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    display: block;
+    margin: 0 auto;
+  }
   
   .menu-date {
     color: var(--muted);
