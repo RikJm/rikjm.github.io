@@ -167,6 +167,24 @@ document.addEventListener("DOMContentLoaded", () => {
   startHeroSlideshow();
   startCardSlideshows();
 
+  const toggle = document.getElementById("theme-toggle");
+  const root = document.documentElement;
+
+  toggle.addEventListener("click", () => {
+    const current = root.getAttribute("data-theme");
+    const next = current === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", next);
+
+    // Optional: save preference
+    localStorage.setItem("theme", next);
+  });
+
+  // Load saved theme
+  const saved = localStorage.getItem("theme");
+  if (saved) {
+    root.setAttribute("data-theme", saved);
+  }  
+
   // Scroll to top when clicking the logo
   const logo = document.querySelector(".logo");
   if (logo) {
