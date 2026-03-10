@@ -161,11 +161,14 @@ function startCardSlideshows() {
   });
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
   loadMenu();
   startHeroSlideshow();
   startCardSlideshows();
+
+  // Define root and toggle (these were missing)
+  const root = document.documentElement;
+  const toggle = document.getElementById("theme-toggle");
 
   // 1. Detect OS preference
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -194,18 +197,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 4. Manual toggle button
-  toggle.addEventListener("click", () => {
-    const current = root.getAttribute("data-theme");
-    const next = current === "light" ? "dark" : "light";
-    applyTheme(next);
-  });
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      const next = current === "light" ? "dark" : "light";
+      applyTheme(next);
+    });
+  }
 
-  
   // Scroll to top when clicking the logo
   const logo = document.querySelector(".logo");
   if (logo) {
     logo.addEventListener("click", (e) => {
-      e.preventDefault(); // prevents page reload if it's an <a>
+      e.preventDefault();
       window.scrollTo({
         top: 0,
         behavior: "smooth"
@@ -213,4 +217,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
   
