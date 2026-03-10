@@ -34,8 +34,8 @@
     --header-bg: rgba(18, 18, 18, 0.9);
     --shadow-soft: 0 10px 25px rgba(153, 153, 153, 0.473);    
     --logo-src: url("img/logo-dark.png");
-    --hero-bg-light: rgba(210, 210, 210, 0.6);
-    --hero-bg-dark: rgba(79, 79, 79, 0.6);
+    --hero-bg-dark: rgba(210, 210, 210, 0.6);
+    --hero-bg-light: rgba(79, 79, 79, 0.6);
   }
 
   .theme-toggle {
