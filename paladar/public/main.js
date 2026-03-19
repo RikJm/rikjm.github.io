@@ -82,7 +82,7 @@ function startHeroSlideshow() {
 
   // Preload first image
   const preload = new Image();
-  preload.src = images[0];
+  preload.src = images[index];
 
   preload.onload = () => {
     // Set the first image once it's decoded
