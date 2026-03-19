@@ -234,6 +234,7 @@
   
   .section {
     padding: 3rem 0;
+    scroll-margin-top: 100px; /* adjust to match your header height */
   }
   
   .section-paper {
