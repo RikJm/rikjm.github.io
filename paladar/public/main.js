@@ -86,14 +86,13 @@ function startHeroSlideshow() {
 
   preload.onload = () => {
     // Set the first image once it's decoded
-    heroImg.style.backgroundImage = `url(${images[0]})`;
+    heroImg.style.backgroundImage = `url(${images[index]})`;
     startSlideshow();
   };
 
   function startSlideshow() {
     intervalId = setInterval(() => {
       heroImg.classList.add("fade-out");
-
       setTimeout(() => {
         index = (index + 1) % images.length;
         heroImg.style.backgroundImage = `url(${images[index]})`;
