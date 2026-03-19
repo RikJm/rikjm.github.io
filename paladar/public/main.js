@@ -80,27 +80,36 @@ function startHeroSlideshow() {
   let index = 0;
   let intervalId;
 
-  const start = () => {
+  // Preload first image
+  const preload = new Image();
+  preload.src = images[0];
+
+  preload.onload = () => {
+    // Set the first image once it's decoded
+    heroImg.style.backgroundImage = `url(${images[0]})`;
+    startSlideshow();
+  };
+
+  function startSlideshow() {
     intervalId = setInterval(() => {
       heroImg.classList.add("fade-out");
 
       setTimeout(() => {
         index = (index + 1) % images.length;
-        heroImg.src = images[index];
+        heroImg.style.backgroundImage = `url(${images[index]})`;
         heroImg.classList.remove("fade-out");
       }, 800);
     }, 4500);
-  };
+  }
 
-  const stop = () => clearInterval(intervalId);
+  function stopSlideshow() {
+    clearInterval(intervalId);
+  }
 
-  // Start slideshow
-  start();
-
-  // Pause on hover
-  heroImg.addEventListener("mouseenter", stop);
-  heroImg.addEventListener("mouseleave", start);
+  heroImg.addEventListener("mouseenter", stopSlideshow);
+  heroImg.addEventListener("mouseleave", startSlideshow);
 }
+
   
   
 function startCardSlideshows() {
