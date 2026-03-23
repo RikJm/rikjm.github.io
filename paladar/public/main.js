@@ -69,13 +69,13 @@ async function loadMenu() {
 }
 
 function startHeroSlideshow() {
-  const heroImg = document.querySelector(".hero-image");
-
   const images = [
     "img/hero-1.jpg",
     "img/hero-2.jpg",
     "img/hero-3.jpg"
   ];
+  
+  const heroImg = document.querySelector(".hero-image");
 
   let index = 0;
   let intervalId;
@@ -83,12 +83,6 @@ function startHeroSlideshow() {
   // Preload first image
   const preload = new Image();
   preload.src = images[index];
-
-  preload.onload = () => {
-    // Set the first image once it's decoded
-    heroImg.src = images[index];
-    startSlideshow();
-  };
 
   function startSlideshow() {
     intervalId = setInterval(() => {
@@ -100,6 +94,12 @@ function startHeroSlideshow() {
       }, 800);
     }, 4500);
   }
+
+  preload.onload = () => {
+    // Set the first image once it's decoded
+    heroImg.src = images[index];
+    startSlideshow();
+  };
 
   function stopSlideshow() {
     clearInterval(intervalId);
