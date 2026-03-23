@@ -47,6 +47,16 @@
     color: var(--text-color);
   }
 
+  @keyframes hero-zoom {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.06);
+    }
+  }
+
+
   * {
   transition: background-color 0.25s ease, color 0.25s ease;
   }
@@ -182,7 +192,7 @@
     justify-self: end;
     min-height: 420px;
   }
-    
+  
   .hero-image {
     width: 100%;
     height: auto;
@@ -192,6 +202,8 @@
     box-shadow: var(--shadow-soft);
     display: block;
     transition: opacity 0.8s ease-in-out;
+    animation: hero-zoom 6s ease-in-out infinite;
+    transform-origin: center;
   }
   
   /* Buttons */
