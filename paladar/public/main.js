@@ -38,6 +38,11 @@ async function loadMenu() {
     const segonsCards = parseList(menu.segons_cards);
     const postresCards = parseList(menu.postres_cards);
 
+    // load opening hours
+
+    const openingHours = menu.opening_hours || "";
+
+
     // One image for the menu
     window.menuImage = menu.image ? `img/${menu.image}` : null;
     
@@ -67,6 +72,9 @@ async function loadMenu() {
     renderList(segonsEl, segons);
     renderList(postresEl, postres);
 
+    const openingHoursEl = document.getElementById("opening-hours");
+    openingHoursEl.innerHTML = openingHours.replace(/;/g, "<br>");
+
     errorEl.textContent = "";
 
     // loading text for plats
@@ -94,14 +102,14 @@ async function loadMenu() {
 }
 
 function startHeroSlideshow() {
+  const heroImg = document.querySelector(".hero-image");
+
   const images = [
     "img/hero-1.jpg",
     "img/hero-2.jpg",
     "img/hero-3.jpg"
   ];
   
-  const heroImg = document.querySelector(".hero-image");
-
   let index = 0;
   let intervalId;
 
@@ -129,13 +137,13 @@ function startHeroSlideshow() {
   function stopSlideshow() {
     clearInterval(intervalId);
   }
-
+  
+  // Pause on hover
   heroImg.addEventListener("mouseenter", stopSlideshow);
   heroImg.addEventListener("mouseleave", startSlideshow);
 }
 
-  
-  
+   
 function startCardSlideshows() {
   const slideshows = [
     {
