@@ -16,7 +16,7 @@ async function loadMenu() {
     // Parse CSV
     const [headerLine, dataLine] = csv.split("\n");
     const headers = headerLine.split(",");
-    const values = dataLine.split(",");
+    const values = dataLine.split(",");    
 
     const menu = {};
     headers.forEach((h, i) => {
@@ -31,6 +31,12 @@ async function loadMenu() {
     const primers = parseList(menu.primers);
     const segons = parseList(menu.segons);
     const postres = parseList(menu.postres);
+
+    // Load plats cards text
+
+    const primersCards = parseList(menu.primers_cards);
+    const segonsCards = parseList(menu.segons_cards);
+    const postresCards = parseList(menu.postres_cards);
 
     // One image for the menu
     window.menuImage = menu.image ? `img/${menu.image}` : null;
@@ -62,6 +68,25 @@ async function loadMenu() {
     renderList(postresEl, postres);
 
     errorEl.textContent = "";
+
+    // loading text for plats
+    const primersCardsEl = document.getElementById("primers-cards");
+    const segonsCardsEl = document.getElementById("segons-cards");
+    const postresCardsEl = document.getElementById("postres-cards");
+
+    const renderListCards = (el, items) => {
+      el.innerHTML = "";
+      items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        el.appendChild(li);
+      });
+    };
+
+    renderListCards(primersCardsEl, primersCards);
+    renderListCards(segonsCardsEl, segonsCards);
+    renderListCards(postresCardsEl, postresCards);
+
   } catch (err) {
     console.error(err);
     errorEl.textContent = "No s’ha pogut carregar el menú del dia.";
