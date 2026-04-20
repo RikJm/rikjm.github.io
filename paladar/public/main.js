@@ -231,11 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 2. Load saved theme OR fall back to OS preference
   const saved = localStorage.getItem("theme");
-  if (saved) {
-    applyTheme(saved);
-  } else {
-    applyTheme(prefersDark.matches ? "dark" : "light");
-  }
+  applyTheme(prefersDark.matches ? "dark" : "light");
 
   // 3. Listen for OS theme changes in real time
   prefersDark.addEventListener("change", (e) => {
