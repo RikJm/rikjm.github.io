@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Website</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<!-- LOGO SECTION -->
+<header id="header">
+    <img id="mainLogo" src="your-logo.png" alt="Logo">
+</header>
+
+<!-- NAVIGATION BAR WITH CENTER LOGO -->
+<nav id="navbar">
+    <ul class="nav-left">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#interviews">Interviews</a></li>
+    </ul>
+
+    <img id="navLogo" src="your-logo.png" alt="Logo">
+
+    <ul class="nav-right">
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#shop">Shop</a></li>
+    </ul>
+</nav>
+
+<!-- HOME SECTION -->
+<section id="home">
+    <h2>Latest Reels</h2>
+    <div class="reels-container">
+
+        <!-- Replace with your Instagram embed links -->
+        <iframe src="https://www.instagram.com/reel/XXXXXXXX/embed" allowfullscreen></iframe>
+        <iframe src="https://www.instagram.com/reel/YYYYYYYY/embed" allowfullscreen></iframe>
+        <iframe src="https://www.instagram.com/reel/ZZZZZZZZ/embed" allowfullscreen></iframe>
+
+    </div>
+</section>
+
+<!-- INTERVIEWS SECTION -->
+<section id="interviews">
+    <h2>Interviews</h2>
+
+    <div class="interview-card">
+        <img src="person1.jpg" alt="Interviewee">
+        <blockquote>"A powerful quote from the interview."</blockquote>
+    </div>
+
+    <div class="interview-card">
+        <img src="person2.jpg" alt="Interviewee">
+        <blockquote>"Another inspiring quote from the conversation."</blockquote>
+    </div>
+
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+    <h2>Who We Are</h2>
+
+    <div class="team-container">
+        <div class="team-card">
+            <img src="team1.jpg" alt="Team Member">
+            <h3>Person One</h3>
+            <p>Short description about this person.</p>
+        </div>
+
+        <div class="team-card">
+            <img src="team2.jpg" alt="Team Member">
+            <h3>Person Two</h3>
+            <p>Short description about this person.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SHOP SECTION -->
+<section id="shop">
+    <h2>Shop</h2>
+
+    <div class="product-card">
+        <img src="tshirt.jpg" alt="T-Shirt">
+
+        <h3>Logo T‑Shirt</h3>
+
+        <label for="size">Size:</label>
+        <select id="size">
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+        </select>
+
+        <button id="buyBtn">Buy Now</button>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
