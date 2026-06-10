@@ -65,7 +65,9 @@ body {
 /* CENTER LOGO IN NAV */
 #navLogo {
     width: 80px;
-    transition: transform 0.4s ease;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 /* HEADER LOGO */

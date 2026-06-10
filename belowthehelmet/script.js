@@ -1,14 +1,23 @@
-const logo = document.getElementById("mainLogo");
+const mainLogo = document.getElementById("mainLogo");
+const navLogo = document.getElementById("navLogo");
 const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 100) {
-        logo.style.transform = "scale(0.4)";
-        logo.style.opacity = "0";
+        mainLogo.style.transform = "scale(0.4)";
+        mainLogo.style.opacity = "0";
+
         navbar.style.top = "0";
+
+        navLogo.style.opacity = "1";
+        navLogo.style.transform = "scale(1)";
     } else {
-        logo.style.transform = "scale(1)";
-        logo.style.opacity = "1";
-        navbar.style.top = "-80px";
+        mainLogo.style.transform = "scale(1)";
+        mainLogo.style.opacity = "1";
+
+        navbar.style.top = "-120px";
+
+        navLogo.style.opacity = "0";
+        navLogo.style.transform = "scale(0.8)";
     }
 });
