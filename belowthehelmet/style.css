@@ -179,12 +179,16 @@ button:hover {
     background: white;
     width: 100%;
     text-align: center;
-    padding: 10px 0;
+    padding: 0;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     position: absolute;
-    top: 70px; /* sits right under navbar */
+    top: 70px; /* directly under navbar */
     left: 0;
     z-index: 999;
+}
+
+#mobileMenu.active {
+    display: flex;
 }
 
 #mobileMenu a {
@@ -195,6 +199,7 @@ button:hover {
     border-bottom: 1px solid #eee;
     width: 100%;
 }
+
 
 
 /* MOBILE RESPONSIVE */
