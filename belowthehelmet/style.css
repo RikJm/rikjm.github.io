@@ -194,30 +194,32 @@ button:hover {
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
 
+    /* Remove logo from flex flow and center it perfectly */
+    #navLogo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(0.7);
+        width: 55px;
+        max-height: 55px;
+        opacity: 0; /* still controlled by JS */
+        pointer-events: none; /* prevents accidental taps */
+    }
+
+    /* When scrolled */
+    #navLogo.scrolled {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    /* Keep hamburger on the right */
+    #hamburger {
+        margin-left: auto;
+        margin-right: 20px;
+    }
+
     /* Hide desktop nav links */
     .nav-links {
         display: none;
     }
-
-    /* Show hamburger */
-    #hamburger {
-        display: flex;
-    }
-
-    /* Center logo stays centered */
-    #navLogo {
-        width: 55px;        /* smaller base size */
-        max-height: 55px;   /* prevents overflow */
-        transform: translateX(-50%) scale(0.6);
-    }
-
-    /* Mobile menu visible when active */
-    #mobileMenu.active {
-        display: flex;
-    }
-
-    /* When scrolled (JS scales it), keep it controlled */
-    #navLogo.scrolled {
-        transform: translateX(-50%) scale(0.9);
-    }
 }
+
