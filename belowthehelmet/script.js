@@ -18,7 +18,7 @@ window.addEventListener("scroll", () => {
         navbar.style.top = "0";
 
         navLogo.style.opacity = "1";
-        navLogo.style.transform = "scale(1)";
+        navLogo.classList.add("scrolled");
     } else {
         mainLogo.style.transform = "scale(1)";
         mainLogo.style.opacity = "1";
@@ -26,6 +26,6 @@ window.addEventListener("scroll", () => {
         navbar.style.top = "-120px";
 
         navLogo.style.opacity = "0";
-        navLogo.style.transform = "scale(0.8)";
+        navLogo.classList.remove("scrolled");
     }
 });

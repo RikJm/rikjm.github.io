@@ -208,11 +208,18 @@ button:hover {
     #navLogo {
         position: absolute;
         left: 50%;
-        transform: translateX(-50%);
+        width: 55px;        /* smaller base size */
+        max-height: 55px;   /* prevents overflow */
+        transform: translateX(-50%) scale(0.7);
     }
 
     /* Mobile menu visible when active */
     #mobileMenu.active {
         display: flex;
+    }
+
+    /* When scrolled (JS scales it), keep it controlled */
+    #navLogo.scrolled {
+        transform: translateX(-50%) scale(0.9);
     }
 }
