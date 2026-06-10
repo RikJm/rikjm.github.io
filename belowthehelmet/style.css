@@ -155,3 +155,64 @@ button {
 button:hover {
     background: #333;
 }
+
+/* HAMBURGER BUTTON */
+#hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+#hamburger span {
+    width: 25px;
+    height: 3px;
+    background: black;
+    transition: 0.3s;
+}
+
+/* MOBILE MENU (hidden by default) */
+#mobileMenu {
+    display: none;
+    flex-direction: column;
+    background: white;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#mobileMenu a {
+    padding: 15px 0;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+    /* Hide desktop nav links */
+    .nav-links {
+        display: none;
+    }
+
+    /* Show hamburger */
+    #hamburger {
+        display: flex;
+    }
+
+    /* Center logo stays centered */
+    #navLogo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Mobile menu visible when active */
+    #mobileMenu.active {
+        display: flex;
+    }
+}

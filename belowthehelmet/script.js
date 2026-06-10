@@ -2,6 +2,14 @@ const mainLogo = document.getElementById("mainLogo");
 const navLogo = document.getElementById("navLogo");
 const navbar = document.getElementById("navbar");
 
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+
+hamburger.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+});
+
+
 window.addEventListener("scroll", () => {
     if (window.scrollY > 100) {
         mainLogo.style.transform = "scale(0.4)";
