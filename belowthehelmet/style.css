@@ -206,11 +206,9 @@ button:hover {
 
     /* Center logo stays centered */
     #navLogo {
-        position: absolute;
-        left: 50%;
         width: 55px;        /* smaller base size */
         max-height: 55px;   /* prevents overflow */
-        transform: translateX(-50%) scale(0.7);
+        transform: translateX(-50%) scale(0.6);
     }
 
     /* Mobile menu visible when active */
