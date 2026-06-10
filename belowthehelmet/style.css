@@ -179,22 +179,39 @@ button:hover {
     background: white;
     width: 100%;
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: absolute;
+    top: 70px; /* sits right under navbar */
+    left: 0;
+    z-index: 999;
 }
 
 #mobileMenu a {
-    padding: 15px 0;
+    padding: 18px 0;
     text-decoration: none;
     color: black;
     font-weight: bold;
     border-bottom: 1px solid #eee;
+    width: 100%;
 }
+
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
 
-    /* Remove logo from flex flow and center it perfectly */
+    #navbar {
+        position: fixed;
+        top: -120px;
+        left: 0;
+        width: 100%;
+        height: 70px; /* define a fixed height so centering is reliable */
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* hamburger stays right */
+        padding: 0 20px;
+    }
+
     #navLogo {
         position: absolute;
         left: 50%;
@@ -202,24 +219,13 @@ button:hover {
         transform: translate(-50%, -50%) scale(0.7);
         width: 55px;
         max-height: 55px;
-        opacity: 0; /* still controlled by JS */
-        pointer-events: none; /* prevents accidental taps */
+        opacity: 0;
+        pointer-events: none;
     }
 
-    /* When scrolled */
     #navLogo.scrolled {
         transform: translate(-50%, -50%) scale(0.9);
     }
-
-    /* Keep hamburger on the right */
-    #hamburger {
-        margin-left: auto;
-        margin-right: 20px;
-    }
-
-    /* Hide desktop nav links */
-    .nav-links {
-        display: none;
-    }
 }
+
 
